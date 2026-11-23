@@ -93,7 +93,7 @@ function sincronizarPendientesSW() {
 
     const promesasDeEnvio = pendientes.map((item) => {
       return fetch(
-        "<https://jsonplaceholder.typicode.com/posts>",
+        "https://jsonplaceholder.typicode.com/posts",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
