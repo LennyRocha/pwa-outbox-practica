@@ -143,8 +143,6 @@ function sincronizarPendientesFallback() {
 
     // Convertir cada registro pendiente en una promesa de envío + actualización
     const promesasDeEnvio = pendientes.map((item) => {
-      console.log(item);
-
       return fetch(
         "https://jsonplaceholder.typicode.com/posts",
         {
