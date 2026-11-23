@@ -19,6 +19,7 @@
   "display": "standalone",
   "dir": "auto",
   "lang": "es-419",
+  "scope": "./",
   "name": "pwa_outbox_practica",
   "short_name": "PWA box",
   "start_url": "./index.html"

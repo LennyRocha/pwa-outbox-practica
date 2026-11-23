@@ -5,6 +5,42 @@ const nuevaOrden = {
   fecha: Date.now(),
 };
 
+/* ---------- 1. Detección de capacidades ---------- */
+const capacidesPWA = {
+  serviceWorker: "serviceWorker" in navigator,
+  cacheAPI: "caches" in window,
+  indexedDB: "indexedDB" in window,
+  pushNotifications: "PushManager" in window,
+  webBluetooth: "bluetooth" in navigator,
+  storage: "storage" in navigator,
+  camara: !!(
+    navigator.mediaDevices &&
+    navigator.mediaDevices.getUserMedia
+  ),
+};
+console.log("Capacidades:", capacidesPWA);
+
+/* ---------- 2. Service Worker ---------- */
+if (capacidesPWA.serviceWorker) {
+  console.log("Service worker disponible");
+  navigator.serviceWorker
+    .register("./sw.js")
+    .then((registro) => {
+      console.log(
+        "Service worker registrado. Scope:",
+        registro.scope,
+      );
+    })
+    .catch((error) => {
+      console.error(
+        "No se pudo registrar el service worker:",
+        error,
+      );
+    });
+} else {
+  console.log("Service worker no disponible");
+}
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.addEventListener(
     "message",
