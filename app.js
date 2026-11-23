@@ -148,8 +148,8 @@ function sincronizarPendientesFallback() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            title: item.titulo,
-            body: item.descripcion,
+            title: item.title,
+            body: item.body,
           }),
         },
       ).then((res) => {
