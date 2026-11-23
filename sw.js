@@ -39,9 +39,13 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// self.addEventListener("fetch", (e) =>
-//   e.respondWith(cacheFirst(e.request)),
-// );
+self.addEventListener("fetch", (e) => {
+  e.respondWith(
+    caches.match(e.request).then((response) => {
+      return response ?? fetch(e.request);
+    }),
+  );
+});
 
 const cacheFirst = (request) => {
   return caches.match(request).then((resCache) => {
