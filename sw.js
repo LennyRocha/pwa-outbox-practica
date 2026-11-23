@@ -5,7 +5,7 @@ const CACHE_STATIC_NAME = "static-outbox-v2";
 const STATIC_FILES = [
   "./",
   "./index.html",
-  "./styles.css",
+  "./main.css",
   "./db-helper.js",
   "./app.js",
   "./manifest.json",
