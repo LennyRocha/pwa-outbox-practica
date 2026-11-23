@@ -13,6 +13,7 @@ const capacidesPWA = {
   pushNotifications: "PushManager" in window,
   webBluetooth: "bluetooth" in navigator,
   storage: "storage" in navigator,
+  sync: "SyncManager" in window,
   camara: !!(
     navigator.mediaDevices &&
     navigator.mediaDevices.getUserMedia
@@ -143,7 +144,7 @@ function sincronizarPendientesFallback() {
     // Convertir cada registro pendiente en una promesa de envío + actualización
     const promesasDeEnvio = pendientes.map((item) => {
       console.log(item);
-      
+
       return fetch(
         "https://jsonplaceholder.typicode.com/posts",
         {
